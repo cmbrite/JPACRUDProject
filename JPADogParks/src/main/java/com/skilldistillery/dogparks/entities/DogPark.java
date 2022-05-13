@@ -29,6 +29,11 @@ public class DogPark {
 	public DogPark() {
 		super();
 	}
+	
+	@Override
+	public String toString() {
+		return "DogPark [id=" + id + ", name=" + name + "]";
+	}
 
 //	public DogPark(int id, String name, String address, String city, String state, int size) {
 //		super();
