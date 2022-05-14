@@ -46,7 +46,11 @@ class DogParkTest {
 	@DisplayName("testing basic park mappings")
 	void test1() {
 		assertNotNull(park);
-		assertEquals("Anza Park", park.getName());
+		assertEquals("Anza Dog Park", park.getName());
+		assertEquals("1000 N. Stone Ave", park.getAddress());
+		assertEquals("Tucson", park.getCity());
+		assertEquals("AZ", park.getState());
+		assertEquals(1, park.getSize());
 		
 	}
 
