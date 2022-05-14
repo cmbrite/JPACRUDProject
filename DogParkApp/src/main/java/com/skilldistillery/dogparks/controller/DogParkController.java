@@ -22,11 +22,18 @@ public class DogParkController {
 		return "index";
 	}
 	
+	@RequestMapping(path={"list.do"})
+	public String listParks(Model model){
+		model.addAttribute("dogparks", dao.findAll());
+//	  return "WEB-INF/index.jsp";
+	   return "dogParkList"; // if using a ViewResolver.
+	}
+	
 	@RequestMapping(path={"getPark.do"})
 	public String findById(@RequestParam Integer pid, Model model) {
-		DogPark park = dao.findById(pid);
-		model.addAttribute("dogPark", park);
-		return "parks";
+		DogPark dogPark = dao.findById(pid);
+		model.addAttribute("dogpark", dogPark);
+		return "parkInfo";
 	}
 		
 }

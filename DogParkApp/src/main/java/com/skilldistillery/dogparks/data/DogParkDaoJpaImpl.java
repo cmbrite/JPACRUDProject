@@ -25,8 +25,9 @@ public class DogParkDaoJpaImpl implements DogParkDAO{
 
 	@Override
 	public List<DogPark> findAll() {
-
-		return null;
+		String jpql = "SELECT dp FROM DogPark dp";
+		List<DogPark> dogParks = em.createQuery(jpql, DogPark.class).getResultList();
+		return dogParks;
 	}
 
 }
