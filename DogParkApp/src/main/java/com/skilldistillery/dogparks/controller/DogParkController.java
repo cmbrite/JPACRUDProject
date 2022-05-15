@@ -65,5 +65,15 @@ public class DogParkController {
 		
 		return page;
 	}
-		
+	
+	@RequestMapping(path={"deletePark.do"})
+	public String deleteDogPark(@RequestParam("deleteId")int id) {
+		boolean dogPark = dao.deleteDogPark(id);
+//		model.addAttribute("dogpark", dogPark);
+		if(dogPark == true) {
+			return "success";
+		}else {
+		return "unsuccessful";
+		}
+	}
 }

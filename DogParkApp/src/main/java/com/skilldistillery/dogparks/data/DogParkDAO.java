@@ -11,5 +11,7 @@ public interface DogParkDAO {
 		List<DogPark> findAll();
 		
 		DogPark addNewDogPark(DogPark dogPark);
+
+		boolean deleteDogPark(int pid);
 	}
 

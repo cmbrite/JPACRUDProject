@@ -44,4 +44,25 @@ public class DogParkDaoJpaImpl implements DogParkDAO{
 		em.close();
 		return dogPark;
 	}
+	
+	public boolean deleteDogPark(int id) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADogParks");
+		EntityManager em = emf.createEntityManager();
+		boolean wasDeleted = false;
+
+		DogPark dogPark = em.find(DogPark.class, id);
+		if (dogPark != null) {
+			em.getTransaction().begin();
+
+			em.remove(dogPark);
+
+			em.getTransaction().commit();
+		}
+
+		wasDeleted = !em.contains(dogPark);
+
+		em.close();
+		emf.close();
+		return wasDeleted;
+	}
 }

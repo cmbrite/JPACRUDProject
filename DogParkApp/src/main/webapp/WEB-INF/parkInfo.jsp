@@ -15,7 +15,15 @@
   <p><a href="https://maps.google.com/?q=${dogpark.address}, ${dogpark.city}">${dogpark.address}</a></p>
   <p>${dogpark.city}, ${dogpark.state}</p>
   <p>${dogpark.size} Acre</p>
-  
+  <br>
+  <form action="deletePark.do" method="POST">
+				<input type="text" hidden="true" value="${dogpark.id }" name="deleteId" /> 
+				<input type="submit" value="Delete">
+				</form></td>
+				<td><form action="startEditPark.do" method="POST">
+				<input type="text" hidden="true" value="${dogpark.id }" name="editId" /> 
+				<input type="submit" value="Edit">
+				</form>
 </div>
 
 </body>
