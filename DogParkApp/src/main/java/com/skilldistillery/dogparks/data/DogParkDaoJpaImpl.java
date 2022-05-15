@@ -14,14 +14,14 @@ import com.skilldistillery.dogparks.entities.DogPark;
 
 @Service
 @Transactional
-public class DogParkDaoJpaImpl implements DogParkDAO{
+public class DogParkDaoJpaImpl implements DogParkDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public DogPark findById(int dogParkId) {
-		
+
 		return em.find(DogPark.class, dogParkId);
 	}
 
@@ -44,7 +44,7 @@ public class DogParkDaoJpaImpl implements DogParkDAO{
 		em.close();
 		return dogPark;
 	}
-	
+
 	public boolean deleteDogPark(int id) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADogParks");
 		EntityManager em = emf.createEntityManager();
@@ -57,6 +57,8 @@ public class DogParkDaoJpaImpl implements DogParkDAO{
 			em.remove(dogPark);
 
 			em.getTransaction().commit();
+		} else if (dogPark == null) {
+			return false;
 		}
 
 		wasDeleted = !em.contains(dogPark);
@@ -64,5 +66,29 @@ public class DogParkDaoJpaImpl implements DogParkDAO{
 		em.close();
 		emf.close();
 		return wasDeleted;
+	}
+
+	public DogPark editDogPark(DogPark dogPark) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPADogParks");
+		em = emf.createEntityManager();
+		int id = dogPark.getId();
+
+		// open a transaction
+		em.getTransaction().begin();
+
+		// retrieve a "managed" customer entity
+		DogPark editedDogPark = em.find(DogPark.class, id);
+
+		// update the values of the managed entity
+		editedDogPark.setName(dogPark.getName());
+		editedDogPark.setAddress(dogPark.getAddress());
+		editedDogPark.setCity(dogPark.getCity());
+		editedDogPark.setState(dogPark.getState());
+		editedDogPark.setSize(dogPark.getSize());
+
+		// actually make changes
+		em.getTransaction().commit();
+		
+		return editedDogPark;
 	}
 }

@@ -20,6 +20,7 @@
 				<input type="text" hidden="true" value="${dogpark.id }" name="deleteId" /> 
 				<input type="submit" value="Delete">
 				</form></td>
+				
 				<td><form action="startEditPark.do" method="POST">
 				<input type="text" hidden="true" value="${dogpark.id }" name="editId" /> 
 				<input type="submit" value="Edit">

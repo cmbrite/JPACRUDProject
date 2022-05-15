@@ -12,6 +12,8 @@ public interface DogParkDAO {
 		
 		DogPark addNewDogPark(DogPark dogPark);
 
-		boolean deleteDogPark(int pid);
+		boolean deleteDogPark(int id);
+
+		DogPark editDogPark(DogPark dogPark);
 	}
 
