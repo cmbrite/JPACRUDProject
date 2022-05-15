@@ -17,6 +17,8 @@
 	</form>
 <br>
 <a href="list.do">Show all Dog Parks<br>
+<br><br>
+<a href="createDogPark.do">Create new Dog Park<br>
 
 
 </body>

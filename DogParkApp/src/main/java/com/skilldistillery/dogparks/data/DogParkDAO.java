@@ -9,5 +9,7 @@ public interface DogParkDAO {
 		DogPark findById(int dogParkId);
 		
 		List<DogPark> findAll();
+		
+		DogPark addNewDogPark(DogPark dogPark);
 	}
 
