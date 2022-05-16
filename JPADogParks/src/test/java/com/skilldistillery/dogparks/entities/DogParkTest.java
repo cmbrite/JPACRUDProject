@@ -51,7 +51,7 @@ class DogParkTest {
 	void test1() {
 		assertNotNull(park);
 		assertEquals("Anza Dog Park", park.getName());
-		assertEquals("1000 N. Stone Ave", park.getAddress());
+		assertEquals("1000 N. Stone Ave.", park.getAddress());
 		assertEquals("Tucson", park.getCity());
 		assertEquals("AZ", park.getState());
 		assertEquals(1, park.getSize());
@@ -67,19 +67,19 @@ class DogParkTest {
 	@Test
 	@DisplayName("testing edit park mappings")
 	void test3() {
-		park = em.find(DogPark.class, 14);
+		park = em.find(DogPark.class, 2);
 		assertNotNull(park);
-		assertEquals("Test Edit Park", park.getName());
+		assertEquals("Test Dog Park", park.getName());
 		assertEquals("123 Main Street", park.getAddress());
-		assertEquals("Tuscaloosa", park.getCity());
-		assertEquals("AL", park.getState());
+		assertEquals("Chicago", park.getCity());
+		assertEquals("IL", park.getState());
 		assertEquals(4, park.getSize());
 	}
 	
 	@Test
 	@DisplayName("testing add new park")
 	void test4() {
-		park = em.find(DogPark.class, 17);
+		park = em.find(DogPark.class, 11);
 		assertNotNull(park);
 		assertEquals("Lucky's Yard", park.getName());
 		assertEquals("WY", park.getState());

@@ -89,33 +89,6 @@
 				</div>
 			</td>
 		</tr>
-		<tr>
-			<td>
-				<div class="form-floating mb-3">
-   		 <input list="open" class="form-control" name="open" size="4" placeholder="0000">
-		<label for="open">Opens:</label>
-  			<datalist id="state">
-   			 	<option value="0600"><option value="0630"><option value="0700"><option value="0730">
-   			 	<option value="0800"><option value="0830"><option value="0900"><option value="0930">
-    			<option value="1000"><option value="1030"><option value="1100"><option value="1130">
-    			<option value="1200">
- 			 </datalist>
-  				</div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<div class="form-floating mb-3">
-   		 <input list="open" class="form-control" name="open" size="4" placeholder="0000">
-		<label for="open">Closes:</label>
-  			<datalist id="state">
-   			 	<option value="1800"><option value="1830"><option value="1900"><option value="1930">
-   			 	<option value="2000"><option value="2030"><option value="2200"><option value="2230">
-    			<option value="2300"><option value="2330"><option value="0000">
- 			 </datalist>
-  				</div>
-			</td>
-		</tr>
 	</table>
 		<br>
 		 <button type="submit" class="btn btn-primary" value="Submit">Submit</button>

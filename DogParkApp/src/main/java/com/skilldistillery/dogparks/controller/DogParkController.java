@@ -50,8 +50,7 @@ public class DogParkController {
 	@RequestMapping(path="newDogPark.do", method = RequestMethod.POST)
 	public ModelAndView createDogPark(@RequestParam("name") String name, 
 			@RequestParam("address") String address, @RequestParam("city") String city, 
-			@RequestParam("state") String state, @RequestParam("size") Integer size, 
-			@RequestParam("open") Integer open, @RequestParam("close") Integer close,
+			@RequestParam("state") String state, @RequestParam("size") Integer size,
 			RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		state = state.toUpperCase();
@@ -61,8 +60,6 @@ public class DogParkController {
 		dogPark.setCity(city);
 		dogPark.setState(state);
 		dogPark.setSize(size);
-		dogPark.setSize(open);
-		dogPark.setSize(close);
 		DogPark newDogPark = dao.addNewDogPark(dogPark);
 		if(newDogPark != null) {
 			mv.addObject("dogpark", dogPark);
@@ -104,8 +101,7 @@ public class DogParkController {
 	@RequestMapping(path={"editDogPark.do"})
 	public ModelAndView editDogPark(@RequestParam("editId")String editId, @RequestParam("name") String name, 
 			@RequestParam("address") String address, @RequestParam("city") String city, 
-			@RequestParam("state") String state, @RequestParam("size") Integer size,
-			@RequestParam("open") Integer open, @RequestParam("close") Integer close) {
+			@RequestParam("state") String state, @RequestParam("size") Integer size) {
 		ModelAndView mv = new ModelAndView();
 		int id = Integer.parseInt(editId);
 		state = state.toUpperCase();
@@ -116,8 +112,6 @@ public class DogParkController {
 	    dogPark.setCity(city);
 	    dogPark.setState(state);
 	    dogPark.setSize(size);
-	    dogPark.setSize(open);
-		dogPark.setSize(close);
 	    
 	    DogPark editedDogPark = dao.editDogPark(dogPark);
 		if(editedDogPark != null) {

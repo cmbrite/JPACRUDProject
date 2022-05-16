@@ -85,8 +85,6 @@ public class DogParkDaoJpaImpl implements DogParkDAO {
 		editedDogPark.setCity(dogPark.getCity());
 		editedDogPark.setState(dogPark.getState());
 		editedDogPark.setSize(dogPark.getSize());
-		editedDogPark.setSize(dogPark.getOpen());
-		editedDogPark.setSize(dogPark.getClose());
 
 		// actually make changes
 		em.getTransaction().commit();

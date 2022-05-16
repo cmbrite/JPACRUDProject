@@ -24,10 +24,6 @@ public class DogPark {
 	
 	private Integer size;
 	
-	private Integer open;
-	
-	private Integer close;
-	
 	
 
 	public DogPark() {
@@ -49,10 +45,6 @@ public class DogPark {
 		builder.append(state);
 		builder.append(", size=");
 		builder.append(size);
-		builder.append(", open=");
-		builder.append(open);
-		builder.append(", close=");
-		builder.append(close);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -67,21 +59,6 @@ public class DogPark {
 		this.size = size;
 	} 
 	
-	public Integer getOpen() {
-		return open;
-	}
-
-	public void setOpen(Integer open) {
-		this.open = open;
-	}
-
-	public Integer getClose() {
-		return close;
-	}
-
-	public void setClose(Integer close) {
-		this.close = close;
-	}
 
 	public int getId() {
 		return id;
