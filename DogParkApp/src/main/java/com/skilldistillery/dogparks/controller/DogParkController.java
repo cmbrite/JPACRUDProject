@@ -48,25 +48,28 @@ public class DogParkController {
 	}
 	
 	@RequestMapping(path="newDogPark.do", method = RequestMethod.POST)
-	public String createDogPark(@RequestParam("name") String name, 
+	public ModelAndView createDogPark(@RequestParam("name") String name, 
 			@RequestParam("address") String address, @RequestParam("city") String city, 
 			@RequestParam("state") String state, @RequestParam("size") Integer size,
 			RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		state = state.toUpperCase();
 		DogPark dogPark = new DogPark();
 		dogPark.setName(name);
 		dogPark.setAddress(address);
 		dogPark.setCity(city);
 		dogPark.setState(state);
 		dogPark.setSize(size);
-		String page;
 		DogPark newDogPark = dao.addNewDogPark(dogPark);
 		if(newDogPark != null) {
-			redir.addFlashAttribute("dogpark", newDogPark);
-			return "success";
+			mv.addObject("dogpark", dogPark);
+			mv.setViewName("parkInfo");
 		}else {
-			return "unsuccessful";
+			mv.setViewName("unsuccessful");
 		}
+		return mv;
 	}
+	
 	
 	@RequestMapping(path={"deletePark.do"})
 	public String deleteDogPark(@RequestParam("deleteId")int id) {
@@ -96,11 +99,12 @@ public class DogParkController {
 	
 	
 	@RequestMapping(path={"editDogPark.do"})
-	public String editDogPark(@RequestParam("editId")String editId, @RequestParam("name") String name, 
+	public ModelAndView editDogPark(@RequestParam("editId")String editId, @RequestParam("name") String name, 
 			@RequestParam("address") String address, @RequestParam("city") String city, 
 			@RequestParam("state") String state, @RequestParam("size") Integer size) {
-		
+		ModelAndView mv = new ModelAndView();
 		int id = Integer.parseInt(editId);
+		state = state.toUpperCase();
 		DogPark dogPark = dao.findById(id);
 		
 		dogPark.setName(name);
@@ -111,9 +115,11 @@ public class DogParkController {
 	    
 	    DogPark editedDogPark = dao.editDogPark(dogPark);
 		if(editedDogPark != null) {
-			return "success";
+			mv.addObject("dogpark", dogPark);
+			mv.setViewName("parkInfo");
 		}else {
-		return "unsuccessful";
+			mv.setViewName("unsuccessful");
 		}
+		return mv;
 	}
 }

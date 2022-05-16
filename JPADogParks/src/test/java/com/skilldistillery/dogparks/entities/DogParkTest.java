@@ -2,6 +2,10 @@ package com.skilldistillery.dogparks.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,7 +55,36 @@ class DogParkTest {
 		assertEquals("Tucson", park.getCity());
 		assertEquals("AZ", park.getState());
 		assertEquals(1, park.getSize());
+	}
+
+	@Test
+	@DisplayName("testing delete park mappings")
+	void test2() {
+		park = em.find(DogPark.class, 10);
+		assertNull(park);
 		
 	}
+	@Test
+	@DisplayName("testing edit park mappings")
+	void test3() {
+		park = em.find(DogPark.class, 14);
+		assertNotNull(park);
+		assertEquals("Test Edit Park", park.getName());
+		assertEquals("123 Main Street", park.getAddress());
+		assertEquals("Tuscaloosa", park.getCity());
+		assertEquals("AL", park.getState());
+		assertEquals(4, park.getSize());
+	}
+	
+	@Test
+	@DisplayName("testing add new park")
+	void test4() {
+		park = em.find(DogPark.class, 17);
+		assertNotNull(park);
+		assertEquals("Lucky's Yard", park.getName());
+		assertEquals("WY", park.getState());
+		assertEquals("Sun City", park.getCity());
+	}
+	
 
 }
