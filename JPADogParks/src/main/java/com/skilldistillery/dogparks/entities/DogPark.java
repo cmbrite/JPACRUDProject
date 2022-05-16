@@ -24,6 +24,10 @@ public class DogPark {
 	
 	private Integer size;
 	
+	private Integer open;
+	
+	private Integer close;
+	
 	
 
 	public DogPark() {
@@ -33,18 +37,23 @@ public class DogPark {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Dog Park id: ");
+		builder.append("DogPark [id=");
 		builder.append(id);
-		builder.append(", Name: ");
+		builder.append(", name=");
 		builder.append(name);
-		builder.append(", Address: ");
+		builder.append(", address=");
 		builder.append(address);
-		builder.append(", City: ");
+		builder.append(", city=");
 		builder.append(city);
-		builder.append(", State: ");
+		builder.append(", state=");
 		builder.append(state);
-		builder.append(", Acres: ");
+		builder.append(", size=");
 		builder.append(size);
+		builder.append(", open=");
+		builder.append(open);
+		builder.append(", close=");
+		builder.append(close);
+		builder.append("]");
 		return builder.toString();
 	}
 
@@ -58,6 +67,22 @@ public class DogPark {
 		this.size = size;
 	} 
 	
+	public Integer getOpen() {
+		return open;
+	}
+
+	public void setOpen(Integer open) {
+		this.open = open;
+	}
+
+	public Integer getClose() {
+		return close;
+	}
+
+	public void setClose(Integer close) {
+		this.close = close;
+	}
+
 	public int getId() {
 		return id;
 	}

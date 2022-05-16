@@ -34,6 +34,8 @@
       <th scope="col">City</th>
       <th scope="col">State</th>
       <th scope="col">Acres</th>
+      <th scope="col">Open</th>
+      <th scope="col">Closed</th>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +45,8 @@
       <td>${dogpark.city}</td>
       <td>${dogpark.state}</td>
       <td>${dogpark.size}</td>
+      <td>${dogpark.open}</td>
+      <td>${dogpark.close}</td>
     </tr>
     <tr>
   </tbody>
